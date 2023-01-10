@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+    rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <h1>YUMING TSANG</h1>
+      <ul>
+        <li><a href="writeup.html">MP0 Writeup</a></li>
+        <li><a href="cheatsheet.html">Cheatsheet</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Portfolio</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h2>Cheatsheet</h2>
+    </header>
+    <p>CSS code for animating the color of a text link on hover:</p>
+    <p>
+    a {
+      position: relative;
+      display: inline-block;
+      font-weight: 800;
+      color: royalblue;
+      overflow: hidden;
+    }
+
+    a {
+      background: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
+    }
+
+    a {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 100%;
+      background-position: 100%;
+    }
+
+    a {
+      transition: background-position 275ms ease;
+    }
+
+    a:hover {
+      background-position: 0 100%;
+    }</p>
+  </body>
+</html>

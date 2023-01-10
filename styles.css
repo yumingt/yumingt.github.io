@@ -20,11 +20,34 @@
   align-items: center;
 }
 
+/*
 body {
   background-color: white;
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   text-align: center;
+}*/
+
+body {
+  background-color: white;
+  font-family: "Helvetica", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+header, nav {
+  align-self: center;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+header {
+  height: 17px;
+}
+
+nav {
+  height: 50px;
 }
 
 .page-container {
@@ -39,9 +62,22 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
 }
 
+nav h1, nav li {
+  display: inline-flex;
+}
+
+nav li {
+  float: right;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+p, ul li {
+  line-height: 1.6;
+}
+/* gray bar
 li {
   float: left;
 }
@@ -52,12 +88,14 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
+}*/
 
 /* Change the link color to #111 (black) on hover */
+/* gray bar
 li a:hover {
   background-color: #111;
-}
+}*/
+
 /*
 
 body {
@@ -143,3 +181,124 @@ tr td i.fas {
   color: white;
   text-align: center;
 }*/
+
+/* ============================================================================= */
+body {
+  background-color: white;
+  font-family: "Helvetica", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+}
+
+header, nav {
+  align-self: center;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+header {
+  height: 17px;
+}
+
+nav {
+  height: 50px;
+}
+
+nav h1 {
+  float: left;
+  font-size: 35px;
+}
+
+nav h1, nav li {
+  display: inline-flex;
+}
+
+nav li {
+  float: right;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+p, ul li {
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+section ul {
+  text-align: left;
+}
+
+ul li {
+  margin: 10px;
+}
+
+h1 {
+  color: gray;
+}
+
+h2 {
+  color: blueviolet;
+}
+
+section, footer, .container {
+  text-align: center;
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-bottom: 50px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+section, .container {
+  border: 2px solid gray;
+}
+
+section, nav li, .container, .container li {
+  border-radius: 10px;
+}
+
+section > ol, .container li {
+  display: inline-block;
+}
+
+.container li {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid lightpink;
+  background-color: lightpink;
+  color: white;
+  margin: 8px;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  color: royalblue;
+  overflow: hidden;
+}
+a {
+  background: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
+}
+a {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+}
+a {
+  transition: background-position 275ms ease;
+}
+a:hover {
+  background-position: 0 100%;
+}

@@ -1,6 +1,7 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');*/
+
 .picture {
   width: 300px;
-  border: 1px solid black;
   border-radius: 10px;
   cursor: pointer;
   object-fit: cover;
@@ -14,23 +15,50 @@
 .picture-container {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
-  margin: auto;
+  margin: 0;
   gap: 12px;
+  align-items: center;
 }
 
 body {
-  background-color: black;
+  background-color: white;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: black;
+  text-align: center;
 }
 
 .page-container {
   width: 80%;
   margin-top: 5rem;
   margin: auto;
+  align-items: center;
 }
-/*@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+/*
 
 body {
   margin: 0;
@@ -96,19 +124,6 @@ li a.active {
 li a:hover:not(.active) {
   background-color: #29292a;
   color: white;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  margin: 30px 0;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  padding: 8px;
 }
 
 tr:nth-child(1) {

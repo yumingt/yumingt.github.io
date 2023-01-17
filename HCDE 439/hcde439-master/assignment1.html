@@ -1,25 +1,49 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <meta charset="utf-8"> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
-        <title>Example Student's HCDE 439 Physical Computing Page!</title> 
+        <title>Yuming's HCDE 439 Physical Computing Page!</title>
 
         <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
-    </head> 
-    <body> 
+    </head>
+    <body>
 
         <div class="header">
-            <h1>Example Student's Assignment 1!</h1>
+            <h1>Yuming's Assignment 1!</h1>
             <p>
-            <img src="red-panda.jpg" width=400></a>
+            <img src="IMG_8336.jpeg" width=400></a>
+            <p>This is the circuit that I built with three LEDs. I picked red, yellow, and green because they have the same voltage drop.</p>
+            <img src="IMG_8338.jpg" width=800></a>
+            <p>This is my schematic. I picked 220 ohm resistors because it was the lowest resistor that I had above 160 ohms which I calculated as the minimum resistance for a current of 20 mA.</p>
+            <img src="trim-78E4FFA4-1CF0-48C2-96F4-8B1F79B4C7A8-MOV-AdobeExpress.gif" width=400></a>
+            <p>This gif shows the three LEDs blinking independently every half second.</p>
             </p>
-            <p>
-            Here is all the documentation for assignment 1!
-            </p>
+            <p>Here is my Arduino code:</p>
+            <pre>
+                <code>
+                    // the setup function runs once when you press reset or power the board
+                    void setup() {
+                      // initialize digital pin LED_BUILTIN as an output.
+                      pinMode(12, OUTPUT);   //sets digital pin 12 as an output, corresponds to red
+                      pinMode(11, OUTPUT);   // sets digital pin 11 as an output, corresponds to yellow
+                      pinMode(10, OUTPUT);   // sets digital pin 10 as an output, corresponds to green
+                    }
+
+                    // the loop function runs over and over again forever
+                    void loop() {
+                      for (int pin = 10; pin < 13; pin++) {   // loop from pin 10 to pin 12
+                        digitalWrite(pin, HIGH);  // turn the LED on (HIGH is the voltage level)
+                        delay(500);                      // wait for half  a second
+                        digitalWrite(pin, LOW);   // turn the LED off by making the voltage LOW
+                        delay(500);                      // wait for half a second
+                      }
+                    }
+                </code>
+            </pre>
         </div>
-        
+
     </body>
 </html>

@@ -189,7 +189,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  text-align: center;
+  padding: 20px;
 }
 
 header, nav {
@@ -282,7 +282,7 @@ section > ol, .container li {
 a {
   position: relative;
   display: inline-block;
-  font-weight: 800;
+  font-weight: 700;
   color: royalblue;
   overflow: hidden;
 }

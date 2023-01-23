@@ -21,33 +21,36 @@
       <h2>Cheatsheet</h2>
     </header>
     <p>CSS code for animating the color of a text link on hover:</p>
-    <p>
-    a {
-      position: relative;
-      display: inline-block;
-      font-weight: 800;
-      color: royalblue;
-      overflow: hidden;
-    }
+    <pre>
+      <code>
+        a {
+          position: relative;
+          display: inline-block;
+          font-weight: 800;
+          color: royalblue;
+          overflow: hidden;
+        }
 
-    a {
-      background: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
-    }
+        a {
+          background: linear-gradient(to right, midnightblue, midnightblue 50%, royalblue 50%);
+        }
 
-    a {
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% 100%;
-      background-position: 100%;
-    }
+        a {
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 200% 100%;
+          background-position: 100%;
+        }
 
-    a {
-      transition: background-position 275ms ease;
-    }
+        a {
+          transition: background-position 275ms ease;
+        }
 
-    a:hover {
-      background-position: 0 100%;
-    }</p>
+        a:hover {
+          background-position: 0 100%;
+        }
+      </code>
+    </pre>
   </body>
 </html>

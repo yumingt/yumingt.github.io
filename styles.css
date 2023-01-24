@@ -15,9 +15,10 @@
 .picture-container {
   display: flex;
   flex-wrap: wrap;
+  max-width: 80%;
   margin: 0;
-  gap: 12px;
-  align-items: center;
+  gap: 15px;
+  align-items: left;
 }
 
 /*
@@ -38,7 +39,6 @@ body {
 
 header, nav {
   align-self: center;
-  padding: 20px;
   margin-bottom: 70px;
 }
 
@@ -50,12 +50,14 @@ nav {
   height: 50px;
 }
 
+/*
 .page-container {
   width: 80%;
   margin-top: 5rem;
   margin: auto;
-  align-items: center;
+  align-items: left;
 }
+*/
 
 ul {
   list-style-type: none;
@@ -74,7 +76,7 @@ nav li {
   margin-right: 20px;
 }
 
-p, ul li {
+p, ul li, ol li, li {
   line-height: 1.6;
 }
 /* gray bar
@@ -189,12 +191,10 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  padding: 20px;
 }
 
 header, nav {
   align-self: center;
-  padding: 20px;
   margin-bottom: 70px;
 }
 
@@ -242,7 +242,7 @@ h1 {
 }
 
 h2 {
-  color: blueviolet;
+  color: royalblue;
 }
 
 section, footer, .container {

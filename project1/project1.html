@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+    rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <h1>YUMING TSANG</h1>
+      <ul>
+        <li><a href="../writeup.html">MP0 Writeup</a></li>
+        <li><a href="../cheatsheet.html">Cheatsheet</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html">Portfolio</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h2>MP1: Browser Extension Writeup</h2>
+    </header>
+    <h3>Overview and Usage</h3>
+    <p>The core functionality of my project is to add a feature to the blocker example extension which allows the user to change the color of each block. Here is a link to the GitHub repository where the code for my extension is hosted: <a href="https://github.com/yumingt/bookmarker-extension">https://github.com/yumingt/bookmarker-extension</a>. To run the code, simply clone the repository, type "chrome://extensions/" into your Chrome browser, click "Load unpacked", and select the folder of the cloned repository. From there, the extension should be accessible through the puzzle icon in the top right of the browser.</p>
+    <p>Here is a gif of my extension in action:</p>
+    <img
+    src="Recording 2023-01-24 at 02.06.11.gif"
+    width="700"
+    height="400"
+    />
+    <h3>Development Process</h3>
+    <p>Here are the steps that outline my process for this project:</p>
+    <ol>
+      <li>Clone the example blocker web extension and run it locally</li>
+      <li>Look at the example background colorizor code from class GitHub repository</li>
+      <li>Copy and paste relevant code snippets from background colorizer code into blocker code</li>
+      <li>Write code to add color picker and button to change color onto each block</li>
+      <li>Edit and restructure the copied code so that it works with blocker code</li>
+      <li>Debug and troubleshoot. Here is a screenshot of my project an unfinished state where I encountered an error where the color of the block was automatically set to black every time I added a block:</li>
+      <img
+      src="Screenshot (165).png"
+      width="700"
+      height="400"
+      />
+      <li>Host final web extension code on GitHub</li>
+      <li>Do the writeup</li>
+    </ol>
+    <h3>Issue Deep-Dive</h3>
+    <p>An issue that I encountered was a syntax error involving an anonymous function. I created an anonymous function which changes the color of a block every time the "change color" button is clicked, but I encountered an error where the function was being called every time I created a block which resulted in every block defaulting to a black background and the "change color" button was also not working.</p>
+    <p>I resolved this problem by using print statements and the console in my browser's developer tools to figure out if my "change color" button did anything when I clicked it. Although I did not get any errors, the button would not print anything and the anonymous function was not waiting to run.</p>
+    <p>After going through my code line by line, I had a friend try to help me debug my code. Finally, we noticed that the parentheses attached to the anonymous function were in the wrong place which was causing the function to run prematurely. Fixing this syntax error by moving the parentheses was what ended up solving my problem.</p>
+    <h3>Ideas and Future:</h3>
+    <li>Add feature to create color gradients on blocks</li>
+    <li>Add a button to invert colors on all blocks</li>
+    <li>Publish on the Chrome extension store</li>
+    <h3>Kudos</h3>
+    <p>I would like to thank the GOAT Anderson J Shaw for helping me debug my code. You a real one</p>
+  </body>
+</html>

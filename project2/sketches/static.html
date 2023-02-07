@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Static</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        background(0);
+
+        for (let i = 10; i < width; i += 10) {
+          // If 'i' divides by 20 with no remainder draw the first circle
+          // else draw the second circle
+          if (i % 20 === 0) {
+            stroke(255);
+            circle(i, i, 5);
+          } else {
+            stroke(153);
+            circle(i, i, 5);
+          }
+        }
+      }
+    </script>
+  </head>
+</html>

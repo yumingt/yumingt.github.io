@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Static</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js" integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      // The midi notes of a scale
+      let notes = [60, 62, 64, 65, 67, 69, 71, 72];
+      let oscs = [];
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        ellipseMode(CORNER);
+        colorMode(HSL);
+
+        // Create an array of oscillators, one for each note
+        for (const note of notes) {
+          osc = new p5.Oscillator();
+          osc.start();
+          osc.amp(0);
+          oscs.push(osc);
+        }
+      }
+
+      function draw() {
+        background(0);
+        let w = width / notes.length;
+
+        // Iterate through the notes list and draw each key
+        for (let i = 0; i < notes.length; i++) {
+          let x = i * w;
+          let noteHue = map(x, 0, width, 0, 360);
+
+          // If the mouse is over the key
+          if (mouseX > x && mouseX < x + w && mouseY < height) {
+            if (mouseIsPressed) {
+              // If the mouse is pressed make the fill flicker and rotate the keys around the mouse
+              translate(mouseX, mouseY);
+              rotate(frameCount / 10.0);
+              fill(Math.random() * 255);
+            } else {
+              // If we are just hovering, it is rainbow colored
+              fill(noteHue, 70, 80);
+            }
+          } else {
+            // Otherwise it is white
+            fill(230);
+          }
+
+          // Draw the key
+          //circle(x, 0, w - 1);
+          rect(x, 0, w-1, height-1);
+        }
+      }
+
+      // A function to play a note
+      function playNote(osc, note) {
+        osc.freq(midiToFreq(note), 0.1);
+
+        // increase amplitude over 0.2 seconds, then decrease over 0.5 seconds
+        osc.amp(0.3, 0.2);
+        osc.amp(0, 0.5);
+      }
+
+      function mousePressed() {
+        // Map mouse x position to the appropriate key
+        let key = floor(map(mouseX, 0, width, 0, notes.length));
+        playNote(oscs[key], notes[key]);
+      }
+    </script>
+  </head>
+</html>

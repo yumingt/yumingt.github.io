@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Audio</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js" integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      // The note the button will play
+      let note = 60;
+
+      // Initialize variables here so they can be reused
+      let osc, cSize, cX, cY;
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        colorMode(HSL);
+
+        // Create our oscillator
+        osc = new p5.Oscillator();
+        osc.start();
+        osc.amp(0);
+
+        // Initial values for our circle
+        cSize = 100;
+        cX = width / 2;
+        cY = height / 2;
+      }
+
+      function draw() {
+        background(0);
+
+        if (overCircle(cX, cY, cSize)) {
+          // If mouse is over the circle, change the color
+          if (mouseIsPressed) {
+            // If the mouse is pressed blink circle with random colors
+            fill(Math.random() * 255);
+          } else {
+            // If we are just hovering, make it teal
+            fill(150, 70, 80);
+          }
+        } else {
+          // When mouse is not over the circle it is white
+          fill(230);
+        }
+
+        // Draw the circle
+        circle(cX, cY, cSize);
+      }
+
+
+      function playNote(note) {
+        // Choose the frequency of the oscillator based on the note
+        osc.freq(midiToFreq(note), 0.1);
+
+        // increase amplitude over 0.2 seconds, then decrease over 0.5 seconds
+        osc.amp(0.3, 0.2);
+        osc.amp(0, 0.5);
+      }
+
+      function overCircle(x, y, diameter) {
+        const disX = x - mouseX;
+        const disY = y - mouseY;
+        if (sqrt(sq(disX) + sq(disY)) < diameter / 2) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function mousePressed() {
+        // Only play the note if we are clicking on the circle
+        if (overCircle(cX, cY, cSize)) {
+          // Play the note
+          playNote(note);
+        }
+      }
+    </script>
+  </head>
+</html>

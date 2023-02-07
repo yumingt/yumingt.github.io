@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Random</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        background(0);
+        strokeWeight(20);
+        frameRate(2);
+      }
+
+      function draw() {
+        for (let i = 0; i < width; i++) {
+          let r = random(255);
+          stroke(r);
+          circle(i, i, 3);
+        }
+      }
+    </script>
+  </head>
+</html>

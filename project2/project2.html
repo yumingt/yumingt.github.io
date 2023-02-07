@@ -24,39 +24,36 @@
     <h3>Click <a href="gallery.html">here</a> to view my gallery!</h3>
 
     <h3>Overview and Usage</h3>
-    <p>The core functionality of my project is to add a feature to the blocker example extension which allows the user to change the color of each block. Here is a link to the GitHub repository where the code for my extension is hosted: <a href="https://github.com/yumingt/bookmarker-extension">https://github.com/yumingt/bookmarker-extension</a>. To run the code, simply clone the repository, type "chrome://extensions/" into your Chrome browser, click "Load unpacked", and select the folder of the cloned repository. From there, the extension should be accessible through the puzzle icon in the top right of the browser.</p>
-    <p>Here is a gif of my extension in action:</p>
-    <img
-    src="Recording 2023-01-24 at 02.06.11.gif"
-    width="700"
-    height="400"
-    />
+    <p>The core functionality of my project is to create a gallery page which displays various p5 sketches, including a static image, a static artwork with randomness, an infinite loop, an interactive sketch, a sketch that outputs audio, and a sketch that creates audio and visuals based on user input. Here is a link to the GitHub repository where the code for my sketches are hosted: <a href="https://github.com/yumingt/yumingt.github.io/tree/master/project2">https://github.com/yumingt/yumingt.github.io/tree/master/project2</a>. To run the code, simply clone the repository, and run it locally or copy the Javascript from the html files of each sketch into p5.</p>
+    <p>Here is a gif of my p5 gallery:</p>
+    <img src="media/Recording 2023-02-07 at 02.58.05.gif" width="800"/>
     <h3>Development Process</h3>
     <p>Here are the steps that outline my process for this project:</p>
     <ol>
-      <li>Clone the example blocker web extension and run it locally</li>
-      <li>Look at the example background colorizor code from class GitHub repository</li>
-      <li>Copy and paste relevant code snippets from background colorizer code into blocker code</li>
-      <li>Write code to add color picker and button to change color onto each block</li>
-      <li>Edit and restructure the copied code so that it works with blocker code</li>
-      <li>Debug and troubleshoot. Here is a screenshot of my project an unfinished state where I encountered an error where the color of the block was automatically set to black every time I added a block:</li>
-      <img
-      src="Screenshot (165).png"
-      width="700"
-      height="400"
-      />
-      <li>Host final web extension code on GitHub</li>
-      <li>Do the writeup</li>
+      <li>Make drafts of Sketches 1-6 on p5.js</li>
+      <li>Create a gallery page and work on CSS layout</li>
+      <li>Link all sketches onto gallery page</li>
+      <li>Add screenshots/gifs of each sketch to the gallery page. Here is a screenshot of my project in an unfinished state as I was adding images to each block:</li>
+      <img src="media/Screenshot (169).png" width="800"/>
+      <li>Create an outline of project writeup</li>
+      <li>Finalize writeup and link gallery to writeup page</li>
+      <li>Push final code to GitHub</li>
     </ol>
     <h3>Issue Deep-Dive</h3>
-    <p>An issue that I encountered was a syntax error involving an anonymous function. I created an anonymous function which changes the color of a block every time the "change color" button is clicked, but I encountered an error where the function was being called every time I created a block which resulted in every block defaulting to a black background and the "change color" button was also not working.</p>
-    <p>I resolved this problem by using print statements and the console in my browser's developer tools to figure out if my "change color" button did anything when I clicked it. Although I did not get any errors, the button would not print anything and the anonymous function was not waiting to run.</p>
-    <p>After going through my code line by line, I had a friend try to help me debug my code. Finally, we noticed that the parentheses attached to the anonymous function were in the wrong place which was causing the function to run prematurely. Fixing this syntax error by moving the parentheses was what ended up solving my problem.</p>
+    <p>An issue that I encountered was that my sketches that involved audio did not play the audio when accessed from my gallery page even though it worked in the p5.js environment.</p>
+    <p>I resolved this problem by adding the following script tags to the head of my html code:</p>
+    <pre>
+      <code>
+        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js" integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
+        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
+      </code>
+    </pre>
+    <p>This fix taught me that I should always check to make sure that I've properly imported libraries before trying to use them.</p>
     <h3>Ideas and Future:</h3>
-    <li>Add feature to create color gradients on blocks</li>
-    <li>Add a button to invert colors on all blocks</li>
-    <li>Publish on the Chrome extension store</li>
+    <li>Add some color to static, random, and infinite loop sketches</li>
+    <li>Add feature to save note sequences on audio and visuals sketch</li>
+    <li>Create a new sketch that generates random loops based on audio input</li>
     <h3>Kudos</h3>
-    <p>I would like to thank the GOAT Anderson J Shaw for helping me debug my code. You a real one</p>
+    <p>Thank you to the p5 documentation and Hannah for providing great example code.</p>
   </body>
 </html>

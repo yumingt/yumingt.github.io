@@ -16,9 +16,9 @@
             <img src="media/IMG_9121.jpeg" width=400></a>
             <p>This is the circuit that I built with two buttons and a red LED.</p>
             <img src="media/IMG_9134.jpg" width=800></a>
-            <p>These are my calculations and schematics. I picked a 220 ohm resistor because it was the lowest resistor that I had above the calculation for the red LED and I used a 10k resistor for the two buttons so that all the electrons will flow through the buttons to ground.</p>
-            <img src="media/trim-610084CC-4EFF-40B3-B711-4D1C5490AF01-MOV-AdobeExpress.gif" width=400></a>
-            <p>This gif shows that pressing the left button makes the player jump while pressing the right button ends the game. Additionally, pressing different keys on my keyboard lights up the LED at different brightnesses.</p>
+            <p>These are my calculations and schematics. I picked a 220 ohm resistor because it was the lowest resistor that I had above the calculation for the red LED and I used a 10k resistor for the two buttons because I like the voltage range it gives me.</p>
+            <img src="media/trim-888E7CB8-55FF-4E71-840C-B396B77ACE5A-MOV-AdobeExpress.gif" width=400></a>
+            <p>This gif shows that pressing the left button makes the player jump while pressing the right button ends the game. Additionally, pressing the button on the webpage lights up the LED.</p>
             <p>Here is my Arduino code:</p>
             <pre>
                 <code>
@@ -138,9 +138,8 @@
                       }
                     }
 
-                    function keyPressed() {
-                        console.log("writing key"); // logs if a key is pressed
-                        serial.write(key); // writes key value to serial port
+                    function doSomething() {
+                      serial.write(255); // when button is pressed, LED lights up
                     }
 
                     function draw() {

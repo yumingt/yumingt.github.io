@@ -67,5 +67,174 @@
         &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js">&lt;/script>
       </code>
     </pre>
+    <p>iframe setup in Javascript files</p>
+    <pre>
+      <code>
+        const gameView = () => {
+          renderLeaderboard()
+          return html`
+            &lt;iframe id="game-iframe" src="sketch.html"&gt;&lt;/iframe&gt;
+          `;
+        }
+      </code>
+    </pre>
+    <p>CSS Navigation bar styles</p>
+    <pre>
+      <code>
+        nav {
+          color: #333;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 60px;
+          position: relative;
+        }
+
+        .logo {
+          font-size: 1.5em;
+          font-weight: bold;
+          text-transform: uppercase;
+          padding: 10px;
+          color: gray;
+        }
+      </code>
+    </pre>
+    <p>CSS Hamburger menu styles</p>
+    <pre>
+      <code>
+        .menu-btn {
+          display: none;
+        }
+
+        .menu-icon {
+          cursor: pointer;
+          display: none;
+          height: 100%;
+          padding: 10px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 50px;
+        }
+
+        .menu-icon .navicon {
+          background-color: #333;
+          display: block;
+          height: 2px;
+          position: relative;
+          transition: background-color 0.2s ease-out;
+          width: 18px;
+        }
+
+        .menu-icon .navicon:before,
+        .menu-icon .navicon:after {
+          background-color: #333;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          transition: all 0.2s ease-out;
+          width: 100%;
+        }
+
+        .menu-icon .navicon:before {
+          top: 5px;
+        }
+
+        .menu-icon .navicon:after {
+          top: -5px;
+        }
+      </code>
+    </pre>
+    <p>CSS Navigation menu styles</p>
+    <pre>
+      <code>
+        .menu {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .menu li {
+          margin: 0 10px;
+        }
+
+        .menu a {
+          color: #333;
+          text-decoration: none;
+        }
+      </code>
+    </pre>
+    <p>CSS Media queries to make website responsive to screen size</p>
+    <pre>
+      <code>
+        @media screen and (max-width: 768px) {
+          .menu-icon {
+            display: block;
+          }
+          .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+          }
+          .menu li {
+            margin: 10px 0;
+          }
+          .menu a {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+          }
+          .menu-btn:checked + .menu {
+            display: flex;
+          }
+        }
+      </code>
+    </pre>
+    <p>Getting scores from Firebase database</p>
+    <pre>
+      <code>
+        async function getAllScores() {
+          const querySnapshot = await getDocs(
+            query(messagesRef, orderBy("score", "desc"))
+          );
+          querySnapshot.forEach((doc) => {
+            let scoreData = doc.data();
+            scores.push(scoreData);
+          });
+          render(gameView(), pageContainer);
+        }
+      </code>
+    </pre>
+    <p>Pushing user's score to Firebase database</p>
+    <pre>
+      <code>
+        window.addEventListener('message', event => {
+          if (event.data.type === 'scoreSubmitted') {
+            let name;
+            if (firebase.auth().currentUser) {
+              name = firebase.auth().currentUser.displayName;
+              console.log(name);
+            }
+            if (name == null) {
+              name = "Anonymous";
+            }
+            const scoreData = {
+              name: name,
+              score: Math.round(event.data.score)
+            };
+            db.collection('scores').add(scoreData);
+            renderLeaderboard();
+          }
+        });
+      </code>
+    </pre>
   </body>
 </html>

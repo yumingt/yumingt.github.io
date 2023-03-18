@@ -97,10 +97,6 @@ ul li {
   margin: 10px;
 }
 
-h1 {
-  color: gray;
-}
-
 h2 {
   color: #4169e1;
 }
@@ -199,3 +195,229 @@ a:hover {
   overflow: hidden;
   float: left;
 }
+
+/* Navigation bar styles */
+nav {
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: gray;
+}
+
+/* Hamburger menu styles */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+}
+
+.menu-icon .navicon {
+  background-color: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background-color 0.2s ease-out;
+  width: 18px;
+}
+
+.menu-icon .navicon:before,
+.menu-icon .navicon:after {
+  background-color: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.menu-icon .navicon:before {
+  top: 5px;
+}
+
+.menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* Navigation menu styles */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .menu li {
+    margin: 10px 0;
+  }
+  .menu a {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+  .menu-btn:checked + .menu {
+    display: flex;
+  }
+}
+
+h1 {
+  color: gray;
+}
+
+/* Navigation bar styles */
+nav {
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: gray;
+}
+
+/* Hamburger menu styles */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+}
+
+.menu-icon .navicon {
+  background-color: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background-color 0.2s ease-out;
+  width: 18px;
+}
+
+.menu-icon .navicon:before,
+.menu-icon .navicon:after {
+  background-color: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.menu-icon .navicon:before {
+  top: 5px;
+}
+
+.menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* Navigation menu styles */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .menu li {
+    margin: 10px 0;
+  }
+  .menu a {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+  /* Added styles to toggle menu visibility */
+  .menu-btn:checked ~ .menu {
+    display: flex;
+  }
+  .menu-btn:checked + .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+}
+

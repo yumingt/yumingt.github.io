@@ -340,6 +340,7 @@ nav {
   right: 0;
   top: 0;
   width: 50px;
+  left: unset;
 }
 
 .menu-icon .navicon {
